@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/PKG-INFO
+writing dependency_links to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/dependency_links.txt
+writing entry points to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/entry_points.txt
+writing requirements to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/requires.txt
+writing top-level names to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/top_level.txt
+reading manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+writing manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+running build
+running build_py
+copying rcl_py_tutorial/pub.py -> /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+running install
+running install_lib
+copying /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial/pub.py -> /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+byte-compiling /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial/pub.py to pub.cpython-38.pyc
+running install_data
+running install_egg_info
+removing '/home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info to /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial-0.0.0-py3.8.egg-info
+running install_scripts
+Installing talker script to /home/limao/ros2_ws/install/rcl_py_tutorial/lib/rcl_py_tutorial
+writing list of installed files to '/home/limao/ros2_ws/build/rcl_py_tutorial/install.log'

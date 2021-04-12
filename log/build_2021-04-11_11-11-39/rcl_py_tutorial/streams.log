@@ -1,0 +1,37 @@
+[0.284s] Invoking command in '/home/limao/ros2_ws/src/rcl_py_tutorial': PYTHONPATH=/home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/rcl_py_tutorial build --build-base /home/limao/ros2_ws/build/rcl_py_tutorial/build install --prefix /home/limao/ros2_ws/install/rcl_py_tutorial --record /home/limao/ros2_ws/build/rcl_py_tutorial/install.log --single-version-externally-managed
+[0.497s] running egg_info
+[0.497s] creating ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info
+[0.497s] writing ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/PKG-INFO
+[0.498s] writing dependency_links to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/dependency_links.txt
+[0.498s] writing entry points to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/entry_points.txt
+[0.498s] writing requirements to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/requires.txt
+[0.498s] writing top-level names to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/top_level.txt
+[0.499s] writing manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+[0.530s] reading manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+[0.531s] writing manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+[0.531s] running build
+[0.531s] running build_py
+[0.532s] creating /home/limao/ros2_ws/build/rcl_py_tutorial/build
+[0.532s] creating /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib
+[0.532s] creating /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+[0.532s] copying rcl_py_tutorial/pub.py -> /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+[0.532s] copying rcl_py_tutorial/__init__.py -> /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+[0.532s] running install
+[0.533s] running install_lib
+[0.534s] creating /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+[0.534s] copying /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial/pub.py -> /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+[0.534s] copying /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial/__init__.py -> /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+[0.534s] byte-compiling /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial/pub.py to pub.cpython-38.pyc
+[0.536s] byte-compiling /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial/__init__.py to __init__.cpython-38.pyc
+[0.536s] running install_data
+[0.537s] creating /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index
+[0.537s] creating /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index/resource_index
+[0.537s] creating /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index/resource_index/packages
+[0.537s] copying resource/rcl_py_tutorial -> /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index/resource_index/packages
+[0.537s] copying package.xml -> /home/limao/ros2_ws/install/rcl_py_tutorial/share/rcl_py_tutorial
+[0.537s] running install_egg_info
+[0.539s] Copying ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info to /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial-0.0.0-py3.8.egg-info
+[0.540s] running install_scripts
+[0.559s] Installing talker script to /home/limao/ros2_ws/install/rcl_py_tutorial/lib/rcl_py_tutorial
+[0.559s] writing list of installed files to '/home/limao/ros2_ws/build/rcl_py_tutorial/install.log'
+[0.579s] Invoked command in '/home/limao/ros2_ws/src/rcl_py_tutorial' returned '0': PYTHONPATH=/home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/rcl_py_tutorial build --build-base /home/limao/ros2_ws/build/rcl_py_tutorial/build install --prefix /home/limao/ros2_ws/install/rcl_py_tutorial --record /home/limao/ros2_ws/build/rcl_py_tutorial/install.log --single-version-externally-managed

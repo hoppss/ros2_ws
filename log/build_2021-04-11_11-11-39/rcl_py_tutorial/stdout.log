@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info
+writing ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/PKG-INFO
+writing dependency_links to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/dependency_links.txt
+writing entry points to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/entry_points.txt
+writing requirements to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/requires.txt
+writing top-level names to ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/top_level.txt
+writing manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+reading manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+writing manifest file '../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/limao/ros2_ws/build/rcl_py_tutorial/build
+creating /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib
+creating /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+copying rcl_py_tutorial/pub.py -> /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+copying rcl_py_tutorial/__init__.py -> /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial
+running install
+running install_lib
+creating /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+copying /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial/pub.py -> /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+copying /home/limao/ros2_ws/build/rcl_py_tutorial/build/lib/rcl_py_tutorial/__init__.py -> /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial
+byte-compiling /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial/pub.py to pub.cpython-38.pyc
+byte-compiling /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index
+creating /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index/resource_index
+creating /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index/resource_index/packages
+copying resource/rcl_py_tutorial -> /home/limao/ros2_ws/install/rcl_py_tutorial/share/ament_index/resource_index/packages
+copying package.xml -> /home/limao/ros2_ws/install/rcl_py_tutorial/share/rcl_py_tutorial
+running install_egg_info
+Copying ../../build/rcl_py_tutorial/rcl_py_tutorial.egg-info to /home/limao/ros2_ws/install/rcl_py_tutorial/lib/python3.8/site-packages/rcl_py_tutorial-0.0.0-py3.8.egg-info
+running install_scripts
+Installing talker script to /home/limao/ros2_ws/install/rcl_py_tutorial/lib/rcl_py_tutorial
+writing list of installed files to '/home/limao/ros2_ws/build/rcl_py_tutorial/install.log'
