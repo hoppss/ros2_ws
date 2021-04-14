@@ -1,3 +1,0 @@
-[console_scripts]
-talker = rcl_py_tutorial.pub:main
-

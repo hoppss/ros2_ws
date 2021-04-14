@@ -17,33 +17,26 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(rcl_idl_tutorials REQUIRED)
 
+# first topic tutorials
 add_executable(pub src/pub.cpp)
-# target_include_directories(pub1 PUBLIC
-#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#   $<INSTALL_INTERFACE:include>)
 ament_target_dependencies(pub rclcpp std_msgs)
-
 
 add_executable(sub src/sub.cpp)
 ament_target_dependencies(sub rclcpp std_msgs)
 
-install(TARGETS pub sub
-  DESTINATION lib/${PROJECT_NAME})
+# self-define msg
+add_executable(num_msg_talker src/pub_idl_msg.cpp)
+ament_target_dependencies(num_msg_talker rclcpp rcl_idl_tutorials)
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # uncomment the line when a copyright and license is not present in all source files
-  #set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # uncomment the line when this package is not in a git repo
-  #set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+add_executable(num_msg_listener src/sub_idl_msg.cpp)
+ament_target_dependencies(num_msg_listener rclcpp rcl_idl_tutorials)
+
+install(TARGETS
+        pub sub num_msg_talker num_msg_listener
+        DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

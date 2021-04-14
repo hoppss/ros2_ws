@@ -1,6 +1,0 @@
-source;share/rcl_py_tutorial/hook/pythonpath.ps1
-source;share/rcl_py_tutorial/hook/pythonpath.dsv
-source;share/rcl_py_tutorial/hook/pythonpath.sh
-source;share/rcl_py_tutorial/hook/ament_prefix_path.ps1
-source;share/rcl_py_tutorial/hook/ament_prefix_path.dsv
-source;share/rcl_py_tutorial/hook/ament_prefix_path.sh
