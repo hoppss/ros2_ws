@@ -25,6 +25,7 @@ public:
     RCLCPP_INFO(this->get_logger(), "Setup fibonacci client");
     this->client_ptr_ = rclcpp_action::create_client<rcl_idl_tutorials::action::Fibonacci>(this, "fibonacci");
     int cnt = 0;
+    int i_ = 0;
 
     while (!this->client_ptr_->wait_for_action_server(std::chrono::seconds(3)) && rclcpp::ok() && cnt < 5)
     {
@@ -41,18 +42,30 @@ public:
       RCLCPP_INFO(this->get_logger(), "Failed to find server, shutdown client node");
       rclcpp::shutdown();
     }
+
     RCLCPP_INFO(this->get_logger(), "Setup spin thread");
 
-    // spin_thread_ = std::make_shared<std::thread>(std::bind(&FibonacciActionClient::spinThread, this));
+    spin_thread_ = std::make_shared<std::thread>(std::bind(&FibonacciActionClient::spinThread, this));
+
+    int end = i_ + 1000;
+    for (; i_ < end && rclcpp::ok(); ++i_)
+    {
+      RCLCPP_INFO(this->get_logger(), "Call Servier %d", i_);
+      send_goal();
+      rclcpp::sleep_for(std::chrono::milliseconds(300));
+      RCLCPP_INFO(this->get_logger(), "cancel %d", i_);
+      cancel();
+    }
+
+    RCLCPP_INFO(this->get_logger(), "___FINISH");
   }
 
   ~FibonacciActionClient()
   {
-    //
-    // if (spin_thread_)
-    // {
-    //   spin_thread_->join();
-    // }
+    if (spin_thread_)
+    {
+      spin_thread_->join();
+    }
   }
 
   void send_goal()
@@ -82,7 +95,7 @@ public:
 
     if (this->goal_handle_ptr_)
     {
-      RCLCPP_DEBUG(this->get_logger(), "Sending cancel request");
+      RCLCPP_INFO(this->get_logger(), "Sending cancel request");
       try
       {
         this->client_ptr_->async_cancel_goal(goal_handle_ptr_);
@@ -90,7 +103,7 @@ public:
       catch (...)
       {
         // This can happen if the goal has already terminated and expired
-        RCLCPP_INFO(this->get_logger(), "cathing excepiton");
+        RCLCPP_INFO(this->get_logger(), "Cancel, excepiton");
       }
     }
   }
@@ -99,7 +112,7 @@ public:
   {
     // while (rclcpp::ok())
     // {
-    rclcpp::spin(shared_from_this());  // c++11  返回本对象shared_ptr
+    rclcpp::spin(this->get_node_base_interface());
     // }
   }
 
@@ -107,6 +120,7 @@ private:
   rclcpp_action::Client<rcl_idl_tutorials::action::Fibonacci>::SharedPtr client_ptr_;
   rclcpp_action::ClientGoalHandle<rcl_idl_tutorials::action::Fibonacci>::SharedPtr goal_handle_ptr_;
   std::shared_ptr<std::thread> spin_thread_;
+  int i_;
 
   void goal_response_callback(std::shared_future<GoalHandleFibonacci::SharedPtr> future)
   {
@@ -167,7 +181,6 @@ int main(int argc, char** argv)
   rclcpp::init(argc, argv);
   auto node = std::make_shared<action_tutorials_cpp::FibonacciActionClient>();
 
-  rclcpp::spin(node);
-  rclcpp::shutdown();
+  //   rclcpp::spin(node);
   return 0;
 }

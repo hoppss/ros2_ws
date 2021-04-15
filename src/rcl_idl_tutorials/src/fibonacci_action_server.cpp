@@ -41,7 +41,7 @@ private:
 
   rclcpp_action::CancelResponse handle_cancle(const std::shared_ptr<GoalHandleFibonacci> goal_handle)
   {
-    RCLCPP_INFO(this->get_logger(), "Received request to cancel goal");
+    RCLCPP_ERROR(this->get_logger(), "Received request to cancel goal");
     (void)goal_handle;
     return rclcpp_action::CancelResponse::ACCEPT;
   }
@@ -56,7 +56,7 @@ private:
   void execute(const std::shared_ptr<GoalHandleFibonacci> goal_handle)
   {
     RCLCPP_INFO(this->get_logger(), "Executing goal");
-    rclcpp::Rate loop_rate(1);
+    rclcpp::Rate loop_rate(10);
     const auto goal = goal_handle->get_goal();
     auto feedback = std::make_shared<Fibonacci::Feedback>();
     auto& sequence = feedback->partial_sequence;
@@ -71,7 +71,7 @@ private:
       {
         result->sequence = sequence;
         goal_handle->canceled(result);
-        RCLCPP_INFO(this->get_logger(), "Goal canceled");
+        RCLCPP_ERROR(this->get_logger(), "Goal canceled");
         return;
       }
       // Update sequence
