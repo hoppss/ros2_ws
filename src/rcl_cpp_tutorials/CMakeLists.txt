@@ -35,8 +35,11 @@ ament_target_dependencies(num_msg_talker rclcpp rcl_idl_tutorials)
 add_executable(num_msg_listener src/sub_idl_msg.cpp)
 ament_target_dependencies(num_msg_listener rclcpp rcl_idl_tutorials)
 
+add_executable(slerp src/slerp.cpp)
+ament_target_dependencies(slerp rclcpp)
+
 install(TARGETS
-        pub sub num_msg_talker num_msg_listener
+        pub sub num_msg_talker num_msg_listener slerp
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
