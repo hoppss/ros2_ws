@@ -7,6 +7,46 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+
+void slerp(double start, double goal /*, std::vector<double>& result_v*/)
+{
+  tf2::Quaternion start_q;
+  start_q.setRPY(0, 0, start);
+
+  tf2::Quaternion goal_q;
+  goal_q.setRPY(0, 0, goal);
+
+  std::vector<double> result_v;
+  double delta_angle = angles::shortest_angular_distance(goal, start);  // end - start
+
+  double step_length = 15.0 / 180.0 * M_PI;
+
+  int steps = std::floor(delta_angle / step_length);
+
+  result_v.clear();  // clear firstly;
+  result_v.push_back(start);
+  if (std::abs(steps) > 0)
+  {
+    for (size_t i = 1; i <= std::abs(steps); ++i)
+    {
+      tf2::Quaternion temp = start_q.slerp(goal_q, 1.0 * i / std::abs(steps));
+      // double temp = angles::normalize_angle(start + i * step_length);
+      result_v.push_back(tf2::getYaw(temp));
+    }
+  }
+
+  result_v.push_back(goal);
+
+  std::cout << "interpolation from [" << start << " : " << goal << "], delta_angle is " << delta_angle << ", steps is "
+            << steps << std::endl;
+
+  for (size_t i = 0; i < result_v.size(); ++i)
+  {
+    std::cout << "result " << i << " " << result_v[i] << " -> " << result_v[i] / M_PI * 180.0 << std::endl;
+  }
+  std::cout << std::endl;
+}
 
 int main(int argc, char** argv)
 {
@@ -14,13 +54,13 @@ int main(int argc, char** argv)
   rclcpp::Node node("simple");
 
   tf2::Quaternion q0;
-  q0.setRPY(0, 0, 150.0 / 180.0 * M_PI);
+  q0.setRPY(0, 0, -150.0 / 180.0 * M_PI);
 
   RCLCPP_INFO(node.get_logger(), "q0 [%f, %f, %f, %f], %f， %f", q0.getW(), q0.getX(), q0.getY(), q0.getZ(),
               tf2::getYaw(q0), tf2::getYaw(q0) * 180.0 / M_PI);
 
   tf2::Quaternion q1;
-  q1.setRPY(0, 0, -150.0 / 180.0 * M_PI);
+  q1.setRPY(0, 0, 150.0 / 180.0 * M_PI);
 
   RCLCPP_INFO(node.get_logger(), "q1 [%f, %f, %f, %f], %f, %f", q1.getW(), q1.getX(), q1.getY(), q1.getZ(),
               tf2::getYaw(q1), tf2::getYaw(q1) * 180.0 / M_PI);
@@ -52,4 +92,8 @@ int main(int argc, char** argv)
 [INFO] [1628774470.030201094] [simple]: slerp 2-4-6-8-10:  162.000000, 174.000000, -174.000000, -162.000000, -150.000000
 
    **/
+
+  slerp(151.0 / 180.0 * M_PI, -152.0 / 180.0 * M_PI);
+  slerp(-151.0 / 180.0 * M_PI, 152.0 / 180.0 * M_PI);
+  slerp(0.0 / 180.0 * M_PI, 52.0 / 180.0 * M_PI);
 }
