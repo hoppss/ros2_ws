@@ -38,8 +38,11 @@ ament_target_dependencies(num_msg_listener rclcpp rcl_idl_tutorials)
 add_executable(slerp src/slerp.cpp)
 ament_target_dependencies(slerp rclcpp)
 
+add_executable(avg src/average_yaw.cpp)
+ament_target_dependencies(avg rclcpp)
+
 install(TARGETS
-        pub sub num_msg_talker num_msg_listener slerp
+        pub sub num_msg_talker num_msg_listener slerp avg
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
