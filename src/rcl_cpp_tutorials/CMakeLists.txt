@@ -20,6 +20,22 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rcl_idl_tutorials REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
+
+message(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(/usr/include/eigen3)
+set(dependencies
+  rclcpp
+  std_msgs
+  visualization_msgs
+  nav_msgs
+  geometry_msgs
+)
+
 
 # first topic tutorials
 add_executable(pub src/pub.cpp)
@@ -41,8 +57,14 @@ ament_target_dependencies(slerp rclcpp)
 add_executable(avg src/average_yaw.cpp)
 ament_target_dependencies(avg rclcpp)
 
+
+# curve
+add_executable(quintic_poly src/quintic_polynomial/quintic_polynomial.cpp src/quintic_polynomial/main.cpp)
+target_link_libraries(quintic_poly Eigen3::Eigen)
+ament_target_dependencies(quintic_poly  ${dependencies})
+
 install(TARGETS
-        pub sub num_msg_talker num_msg_listener slerp avg
+        pub sub num_msg_talker num_msg_listener slerp avg quintic_poly
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
