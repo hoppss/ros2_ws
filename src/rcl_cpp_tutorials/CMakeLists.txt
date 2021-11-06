@@ -63,8 +63,12 @@ add_executable(quintic_poly src/quintic_polynomial/quintic_polynomial.cpp src/qu
 target_link_libraries(quintic_poly Eigen3::Eigen)
 ament_target_dependencies(quintic_poly  ${dependencies})
 
+add_executable(bezier src/cubic_bezier/CubicBezier.cpp src/cubic_bezier/main.cpp)
+target_link_libraries(bezier Eigen3::Eigen)
+ament_target_dependencies(bezier  ${dependencies})
+
 install(TARGETS
-        pub sub num_msg_talker num_msg_listener slerp avg quintic_poly
+        pub sub num_msg_talker num_msg_listener slerp avg quintic_poly bezier
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
