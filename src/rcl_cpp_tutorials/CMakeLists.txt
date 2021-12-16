@@ -11,6 +11,8 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
 
+set(CMAKE_CXX_FLAGS "${CAMKE_CXX_FLAGS} -pthread")
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -24,6 +26,7 @@ find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 message(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/src)
@@ -56,7 +59,6 @@ ament_target_dependencies(slerp rclcpp)
 
 add_executable(avg src/average_yaw.cpp)
 ament_target_dependencies(avg rclcpp)
-
 
 # curve
 add_executable(quintic_poly src/quintic_polynomial/quintic_polynomial.cpp src/quintic_polynomial/main.cpp)
