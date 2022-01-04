@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     rclcpp::init(argc, argv);
     rclcpp::Node node("bezier");
 
-    auto path_pub_ = node.create_publisher<nav_msgs::msg::Path>("bezier_path", 10);
+    auto path_pub_ = node.create_publisher<nav_msgs::msg::Path>("path", 10);
 
     Eigen::Vector2d p0(0,0);
     Eigen::Vector2d p1(1,0);

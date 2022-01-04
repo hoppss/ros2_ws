@@ -14,6 +14,7 @@ Eigen::Vector2d CubicBezier::getPoint(double t)
 {
   double inv_t = 1 - t;
 
+  // 3-order Bernstein polynomal
   return pow3(inv_t) * p0 + 3 * t * pow2(inv_t) * p1 + 3 * pow2(t) * inv_t * p2 + pow3(t) * p3;
 
 }
@@ -26,10 +27,11 @@ double CubicBezier::pow2(double x)
 {
   return x * x;
 }
-
+// 一阶导
 Eigen::Vector2d CubicBezier::derivative(double t)
 {
  double inv_t = 1-t;
 
  return -3 * pow2(inv_t)* p0 + 3* pow2(inv_t)*p1 - 6 * inv_t * t * p1 + 6 * inv_t * t * p2 - 3 * pow2(t)* p2 + 3 * pow2(t) * p3;
+ // 每个t时刻的求导切线和2阶同t时间点的斜率方向一致
 }

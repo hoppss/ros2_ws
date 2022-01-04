@@ -13,6 +13,7 @@ QuinticPolynomial::QuinticPolynomial(
   Eigen::Matrix3d A;
   Eigen::Vector3d B;    // AX = B， x 即为求解系数
 
+  // X = [a3, a4, a5]'
   A << pow(t, 3), pow(t, 4), pow(t, 5),
     3 * pow(t, 2), 4 * pow(t, 3), 5 * pow(t, 4),
     6 * t, 12 * pow(t, 2), 20 * pow(t, 3);

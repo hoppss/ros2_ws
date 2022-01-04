@@ -7,12 +7,14 @@
 // #include "eigen3/Eigen/LU"   // inverse required
 
 // cubic bezier
-// four control points; three line segments
+// four control points; three line segments; 三阶（三条线段）； 控制点数减1 等于阶数
 // 伯恩斯坦基统一n阶计算公式
 // 1) p0， pn 分别位于贝塞尔曲线的起点和终点
 // 2) 几何特性不随坐标系的变化而变化
 // 3) 起点和终点处切线方向和特征多边线的第一条边及最后一条边分别相切
-// 3) 至少4个点，三阶贝塞尔曲线才能生成曲率连续的路径
+// 4) 至少4个点，三阶贝塞尔曲线才能生成曲率连续的路径
+// 5) 最多2阶导不为常熟
+// 6) 至少4个点才能保证生成曲率连续的路径
 
 class CubicBezier
 {
