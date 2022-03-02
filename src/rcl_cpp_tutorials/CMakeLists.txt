@@ -69,8 +69,12 @@ add_executable(bezier src/cubic_bezier/CubicBezier.cpp src/cubic_bezier/main.cpp
 target_link_libraries(bezier Eigen3::Eigen)
 ament_target_dependencies(bezier  ${dependencies})
 
+add_executable(polyfit src/polyfit_mpc/polyfit.cpp)
+# target_link_libraries(polyfit Eigen3::Eigen)
+ament_target_dependencies(polyfit  ${dependencies})
+
 install(TARGETS
-        pub sub num_msg_talker num_msg_listener slerp avg quintic_poly bezier
+        pub sub num_msg_talker num_msg_listener slerp avg quintic_poly bezier polyfit
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
